@@ -4,13 +4,13 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Full Name</th>
-                    <th>Phone</th>
+                    <th>Name</th>
+                    <th>Phone</th>` 
                     <th>Email</th>
                     <th>Address</th>
                     <th>Date</th>
                     <th>Pass</th>
-                    <th>Action</th>
+                    <th>Action</th> 
                 </tr>
             </thead>
             <tbody>
@@ -20,8 +20,9 @@
                         foreach($user as $key => $value) {
                             if($key == 'pass') {
                                 $value = '******';
+                            }else{
+                                echo "<td>$value</td>";
                             }
-                            echo "<td>$value</td>";
                         }
                     echo '<td class="action">
                             <button class="edit-button">Edit</button>

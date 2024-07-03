@@ -12,7 +12,6 @@
         <div class="content-admin">
             <div class="logo-admin">
                 <img src="../../../public/img/logo2.png" alt="logo">
-                <span>Admin Page</span>
             </div>
             <div class="menu-admin">
                 <ul>

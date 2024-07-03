@@ -10,4 +10,7 @@ class UsersController{
         require_once '../../views/admin/users.php';
     }
 
+    public function form_add() {
+        require_once '../../views/admin/form_add.php';
+    }
 }

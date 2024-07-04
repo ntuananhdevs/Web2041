@@ -1,3 +1,25 @@
+//navdown
+document.getElementById('userIcon').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('.dropdown-menu').classList.toggle('show');
+});
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+    if (!event.target.matches('#userIcon') && !event.target.matches('ion-icon')) {
+        var dropdowns = document.getElementsByClassName('dropdown-menu');
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+
+
+
 let listimg = document.querySelector(".list-img");
 let items = document.querySelectorAll(".item");
 let prev = document.getElementById("prev");

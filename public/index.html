@@ -70,24 +70,56 @@
             </div>
         </div>
     </nav>
-    <script>
-        document.getElementById('userIcon').addEventListener('click', function(event) {
-            event.preventDefault();
-            document.querySelector('.dropdown-menu').classList.toggle('show');
-        });
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('#userIcon') && !event.target.matches('ion-icon')) {
-                var dropdowns = document.getElementsByClassName('dropdown-menu');
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
+    <header>
+        <div class="slide-show">
+            <div class="list-img">
+                <div class="item">
+                    <img src="./img/slidesh2.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img src="./img/slidesh3.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img src="./img/slidesh4.jpg" alt="">
+                </div>
+                <div class="item">
+                    <img src="./img/slidesh5.jpg" alt="">
+                </div>
+            </div>
+            <div class="btn">
+                <button id="prev"><ion-icon name="arrow-back-outline"></ion-icon></button>
+                <button id="next"><ion-icon name="arrow-forward-outline"></ion-icon></button>
+            </div>
+        </div>
+        <div class="text-sukien">
+            <h1>Chương trình và Sự kiện</h1>
+        </div>
+            <div class="box-sukien">
+                <div class="box">
+                    <img src="./img/sukien1.png" alt="">
+                    <div class="text-box">
+                        <span>Review sản phẩm - Nhận quà liền tay</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./img/sukien2.png" alt="">
+                    <div class="text-box">
+                        <span>Ưu đãi ASUS Education</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="./img/sukien3.png" alt="">
+                    <div class="text-box">
+                        <span>Mua Laptop ASUS nhận ngay gói Adobe Creative Cloud</span>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <article>
+        <div class="content">
+            <h1>Chương trình mua bán</h1>
+        </div>
+    </article>
+    <script src="./js/main.js"></script>
 </body>
 </html>

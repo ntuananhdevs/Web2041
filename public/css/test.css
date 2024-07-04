@@ -3,36 +3,31 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 body {
-    background-color: #f5f5f5;
+    background-color: #fff;
     margin: auto;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    height: 2000px;
 }
-
 nav {
-    /* font-family: Arial, Helvetica, sans-serif;  */
     background-color: #fff;
 }
-
 .header-nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
     padding: 8px;
+    justify-content: center;
+    gap: 750px;
 }
-
 .header-logo {
     display: flex;
     margin-left: 130px;
     gap: 10px;
 }
-
 .logo-header {
     border-right: 1px solid #ccc;
 }
-
 .logo-header {
     padding: 0 10px;
 }
@@ -90,10 +85,11 @@ nav {
 /* nav  */
 .nav-menu {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
     padding: 12px;
+    justify-content: center;
+    gap: 45px;
 }
 
 .nav-menu .nav-center a {
@@ -197,4 +193,92 @@ nav {
 .dropdown-menu a:hover {
     text-decoration: underline;
     color: rgb(41, 126, 206);
+}
+
+/* slide show */
+header{
+    margin: 40px;
+    background-color: #fff;
+}
+.slide-show{
+    width: 1400px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    box-shadow:-5px -5px 12px #ffffff,
+    5px 5px 12px rgba(0,0,0,.16);
+    margin: auto;
+}
+.btn{
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    display: flex;
+    width: 98%;
+    justify-content: space-between;
+    
+}
+.btn button{
+    width: 50px;
+    height: 50px;
+    background-color: #fff5;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 50%;
+}
+.btn button:hover{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 50%;
+}
+.list-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    transition: 1.5s;
+   
+}
+.item img{
+    width: 1400px;
+    height: 400px;
+    object-fit: cover;
+}
+header{
+    background-color: #fff;
+}
+.text-sukien{
+    text-align: center;
+    margin: 10px;
+}
+.box-sukien{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
+.box{
+    background-color: #f5f5f5;
+    color: #808080;
+    text-align: center;
+    height: 300px;
+    
+}
+.box img{
+    width: 400px;
+    height: 250px;
+}
+.text-box {
+    margin-top: 10px;
+}
+article{
+    background-color: #f5f5f5;
 }

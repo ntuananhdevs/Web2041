@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    background-color: #fff;
+    padding: 70px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.img-login img {
+    max-width: 40px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.form-login form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-login input[type="text"],
+.form-login input[type="password"],
+.form-login input[type="submit"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 240px;
+    
+}
+
+.form-login input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    border: none;
+    width: 260px;
+}
+
+.form-login input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.additional-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.additional-links a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.additional-links a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="img-login">
+            <img src="../../public/img/logo2.png" alt="logo">
+        </div>
+        <div class="form-login">
+            <form action="" method="post">
+                <input type="text" name="email" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="submit" value="Login">
+            </form>
+            <div class="additional-links">
+                <a href="./register.html" class="forgot-password">Forgot Password?</a>
+                <a href="./register.html" class="register">Register</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

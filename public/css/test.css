@@ -181,7 +181,6 @@ nav {
     display: block;
 }
 
-/* Style the links inside the dropdown */
 .dropdown-menu a {
     color: black;
     text-decoration: none;
@@ -189,7 +188,6 @@ nav {
     margin: 10px 0; 
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-menu a:hover {
     text-decoration: underline;
     color: rgb(41, 126, 206);
@@ -257,14 +255,13 @@ header{
 }
 .text-sukien{
     text-align: center;
-    margin: 50px;
+    margin: 80px;
     
 }
 .box-sukien{
     display: flex;
     justify-content: center;
     gap: 10px;
-
 }
 .box{
     background-color: #f5f5f5;
@@ -282,4 +279,5 @@ header{
 }
 article{
     background-color: #f5f5f5;
+    
 }

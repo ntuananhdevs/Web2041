@@ -5,28 +5,27 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Phone</th>` 
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Date</th>
-                    <th>Pass</th>
-                    <th>Action</th> 
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Img</th>
+                    <th>Category_id </th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
             <?php 
-                foreach ($list_account as $user) {
+                foreach ($list_products as $item) {
                     echo '<tr>';
-                        foreach($user as $key => $value) {
-                            if($key == 'pass') {
-                                $value = '******';
-                            }else{
-                                echo "<td>$value</td>";
+                        foreach($item as $key => $value) {
+                            if($key == 'img') {
+                               "<td><img src='$value'></td>";
                             }
+                            echo "<td>$value</td>";
                         }
                     echo '<td class="action">
                             <button class="edit-button">Edit</button>
-                            <button class="delete-button">Delete</button>
+                            <button class="delete-button" onclick=(return confirm("Are you sure?"))>Delete</button>
                           </td>';
                     echo '</tr>';
                 }
@@ -41,3 +40,4 @@
 </div>
 
         
+

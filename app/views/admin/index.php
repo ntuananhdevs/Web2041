@@ -19,6 +19,8 @@ match ($act) {
     'user' => $user->users(),
     // 'category' => include 'category.php',
     'products' => $product->products(),
+    'add_product' => $product->add_products(),
+    'post_product' => $product->post_products(),
     // 'comments' => include 'comments.php',
 };
 

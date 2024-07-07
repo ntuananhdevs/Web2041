@@ -27,13 +27,16 @@ class products {
             echo $e->getMessage();
         }
     }
-    public function addProduct($name, $price, $image) {
+    public function addProduct($product_name, $description, $price, $quantity, $img, $category_id) {
         try{
-            $sql = 'INSERT INTO product(name, price, image) VALUES(:name, :price, :image)';
+            $sql = 'INSERT INTO product(product_name, description, price, quantity, img, category_id) VALUES(:product_name, :description, :price, :quantity, :img, :category_id)';
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':product_name', $product_name);
+            $stmt->bindParam(':description', $description);
             $stmt->bindParam(':price', $price);
-            $stmt->bindParam(':image', $image);
+            $stmt->bindParam(':quantity', $quantity);
+            $stmt->bindParam(':img', $img);
+            $stmt->bindParam(':category_id', $category_id);
             $stmt->execute();
             return $stmt->fetchAll();
         }catch(PDOException $e) {

@@ -60,7 +60,7 @@ nav{
     display: flex;  
     gap: 10px;
 }
-input[type=text]{
+/* input[type=text]{
     width: 300px;
     height: 25px;
     padding-left: 10px;
@@ -73,7 +73,7 @@ input[type=text]:focus{
     height: 25px;
     padding-left: 10px;
     border-radius: 10px;
-}
+} */
 
 .slide-show{
     margin-top: 20px;

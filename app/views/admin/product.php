@@ -34,7 +34,7 @@
 
         </table>
             <div class="btn-add">
-            <a href="?act=add_user">Add User</a>
+            <a href="?act=add_product">Add User</a>
         </div>
     </div>
 </div>

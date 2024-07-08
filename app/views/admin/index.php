@@ -15,13 +15,12 @@ $act = $_GET['act'] ?? '/';
 $user = new UsersController();
 $product = new ProductController();
 match ($act) {
-    // '/' => include '../views/users.php',
+
     'user' => $user->users(),
-    // 'category' => include 'category.php',
     'products' => $product->products(),
     'add_product' => $product->add_products(),
     'post_product' => $product->post_products(),
-    // 'comments' => include 'comments.php',
+    
 };
 
 include '../../layout/footer.php';

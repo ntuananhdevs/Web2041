@@ -6,76 +6,116 @@
     <title>Login</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-.content {
-    background-color: #fff;
-    padding: 70px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-}
+        .content {
+            background-color: #fff;
+            padding: 70px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
 
-.img-login img {
-    max-width: 40px;
-    height: auto;
-    margin-bottom: 10px;
-}
+        .img-login img {
+            max-width: 40px;
+            height: auto;
+            margin-bottom: 10px;
+        }
 
-.form-login form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .form-login form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.form-login input[type="text"],
-.form-login input[type="password"],
-.form-login input[type="submit"] {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 240px;
-    
-}
+        .form-login input[type="text"],
+        .form-login input[type="password"],
+        .form-login input[type="submit"] {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 240px;
+        }
 
-.form-login input[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-    border: none;
-    width: 260px;
-}
+        .form-login input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            border: none;
+            width: 260px;
+        }
 
-.form-login input[type="submit"]:hover {
-    background-color: #0056b3;
-}
+        .form-login input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
 
-.additional-links {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-between;
-}
+        .additional-links {
+            display: flex;
+            justify-content: center; 
+            font-size: 13px;
+            gap: 100px;
+        }
 
-.additional-links a {
-    text-decoration: none;
-    color: #007BFF;
-}
+        .additional-links a {
+            text-decoration: none;
+            color: #007BFF;
+        }
 
-.additional-links a:hover {
-    text-decoration: underline;
-}
+        .additional-links a:hover {
+            text-decoration: underline;
+        }
+
+        .social-login {
+            display: flex;
+            margin-top: 20px;
+            display: flex;
+            gap: 80px;
+            justify-content: center;
+            border-top: solid 1px gainsboro;
+        }
+
+        .social-login a {
+            width: 100px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            gap: 10px;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .google-btn {
+            background-color: #DB4437;
+        }
+
+        .facebook-btn {
+            background-color: #3B5998;
+        }
+
+        .social-login a ion-icon {
+            color: #fff;
+        }
+        label{
+            font-style: italic;
+            font-size: 13px;
+            margin-right: auto;
+            margin-left: 16px;
+        }
     </style>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <div class="content">
@@ -84,13 +124,24 @@
         </div>
         <div class="form-login">
             <form action="" method="post">
-                <input type="text" name="email" id="username" placeholder="Username">
+                <label for="username">*Username</label>
+                <input type="text" name="email" id="username" placeholder="email">
+
+                <label for="password">*Password</label>
                 <input type="password" name="password" id="password" placeholder="Password">
                 <input type="submit" value="Login">
             </form>
             <div class="additional-links">
-                <a href="./register.html" class="forgot-password">Forgot Password?</a>
+                <a href="./forgot-pass.html" class="forgot-password">Forgot Password?</a>
                 <a href="./register.html" class="register">Register</a>
+            </div>
+            <div class="social-login">
+                <a href="#" class="google-btn">
+                    <ion-icon name="logo-google"></ion-icon>
+                </a>
+                <a href="#" class="facebook-btn">
+                    <ion-icon name="logo-facebook"></ion-icon> 
+                </a>
             </div>
         </div>
     </div>

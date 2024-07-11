@@ -252,6 +252,7 @@ header{
 }
 header{
     background-color: #fff;
+    height: 950px;
 }
 .text-sukien{
     text-align: center;
@@ -286,21 +287,27 @@ article{
     width: 1230px;
     margin: auto;
 }
+.products{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    padding-top: 90px;
 
+}
 .box-product{
     width: 400px;
-    height: 800px;
+    height: 740px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    
+    padding: 20px;   
 }
 .deal{
     border: solid 1px red;
     width: 45px;
     height: 22px;
     border-radius: 3px;
-    margin-left: 30px;
+    margin-left: 5px;
 }
 .deal p{
     color: red;
@@ -309,12 +316,30 @@ article{
     text-align: center;
     line-height: 22px
 }
+.text-box{
+    font-family: TTNormsProMedium,MyriadSemibold,Segoe UI,Arial,PingFang TC,Microsoft JhengHei,sans-serif;
+}
+.text-box p{
+    color: #808080;
+}
+.text-box a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    font-weight: 500;
+
+}
+.text-box a:hover{
+    border-bottom: solid 2px #000;
+}
+
 .img-product{
     text-align: center;
 }
 .box-product img{
     width: 120px;
-    height: 124px;
+    height: 120px;
     object-fit: cover;
 }
 .description-box ul {
@@ -324,5 +349,78 @@ article{
     display: flex;
 }
 .header-box{
-    border-bottom: solid 1px gainsboro; 
+    border-bottom: solid 1px #808080;
+    padding-bottom: 20px; 
+}
+.price span{
+    font-size: 12px;
+}
+.price{
+    padding: 10px 10px 0 0 ;    
+}
+.price> p{
+    font-weight: 600;
+    color: rgb(199, 66, 0);
+    display: block;
+    font-family: TTNormsProMedium, MyriadSemibold, "Segoe UI", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size :19px;
+}
+.underline{
+    font-size: 13px;
+    line-height: 135%;
+    color: #262626;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    /* height: fit-content; */
+    display: flex;
+    gap: 10px;
+    border-bottom: solid 1px #808080;
+    line-height: 30px;
+
+}
+.underline p{
+    text-decoration: line-through;
+
+}
+.underline span{
+    color: rgb(199, 66, 0);;
+}
+.description-box{
+    padding-top: 10px;
+    line-height: 30px;
+    color:rgb(77, 77, 77);
+    font-size: 15px;
+}
+.btn-box{
+    margin-top: 30px;
+}
+.btn-box .mua button{
+    background-color:rgb(0, 108, 225);
+    width: 350px;
+    height: 37px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+}
+.mua button:hover{
+    background-color: rgb(4, 72, 146);
+    transition: 1s;
+}
+.btn-box .chitiet button{
+    border: solid 3px rgb(0, 108, 225);
+    width: 350px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    color: rgb(0, 108, 225);
+}
+
+.chitiet button:hover{
+    background-color: rgb(0, 108, 225);
+    color: #fff;
+    transition: .5s;
 }

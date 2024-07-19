@@ -49,7 +49,7 @@ class ProductController{
     public function form_update($id){
         $product_value = $this->products->getproductbyID($id);
         $list_category = $this->categorys->getCategories(); // Lấy tất cả danh mục
-        
+
         if($product_value){
             $product_value = $product_value[0];
             require_once './views/form/update_product.php';

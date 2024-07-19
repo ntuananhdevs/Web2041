@@ -118,6 +118,17 @@ button[type="submit"]:hover {
                     
             </form>
         </div>
-    </div>  
+    </div> 
+<?php
+    if(isset($_POST['submit'])) {
+        $name = $_POST['admin'];
+        $password = $_POST['password'];
+        if($name === 'ntuananh' && $password === '123'){
+            session_start();
+            $_SESSION['userName'] = $name;
+            header('Location: index.php');
+        }
+    }
+?>
 </body>
 </html>

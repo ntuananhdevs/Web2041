@@ -19,7 +19,7 @@
                     <li><a href="?act=/">Home</a></li>
                     <li><a href="?act=category">Category</a></li>
                     <li><a href="?act=products">Products</a></li>
-                    <li><a href="?act=user">Users</a></li>
+                    <li><a href="?act=users">Users</a></li>
                     <li><a href="?act=comments">Comments</a></li>
                 </ul>   
             </div>

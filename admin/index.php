@@ -14,7 +14,7 @@ require_once '../admin/models/user.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
-$users = new UserController();
+$user = new UserController();
 $product = new ProductController();
 match ($act) {
     //products
@@ -29,7 +29,7 @@ match ($act) {
     'category' => $product->view_category(),
 
     //users
-    'user' => $users->view_users(),
+    'users' => $user->view_users(),
 };
 
 include '../admin/views/layout/footer.php';

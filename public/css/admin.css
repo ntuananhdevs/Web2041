@@ -54,6 +54,9 @@ nav{
 }
 .logout-admin{
     margin-left: 650px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 .logout-admin a{
     text-decoration: none;

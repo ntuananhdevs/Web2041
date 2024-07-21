@@ -20,19 +20,16 @@ class User {
 
     public function auth($email, $password) {
         try {
-            $sql = "SELECT * FROM users WHERE email = :email ";
+            $sql = "SELECT * FROM users WHERE email = :email";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':email', $email);
             $stmt->execute();
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            $hash = password_hash("admin",PASSWORD_DEFAULT);
-            
 
-            if (password_verify($password, $user['password'])) {
-               return true;    
+            if ($user && password_verify($password, $user['password'])) {
+                return $user;
             }
             return false;
-            
 
         } catch(PDOException $e) {
             error_log("Database query error: " . $e->getMessage());

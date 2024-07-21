@@ -1,1 +1,1 @@
-no ve trang nay
+<h1>Welcom to Admin</h1>

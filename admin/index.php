@@ -17,24 +17,25 @@ $product = new ProductController();
 $auth = new AuthController();
 
 // Route
-$act = $_GET['act'] ?? '/'; 
+$act = $_GET['act'] ?? '/';
 
-if ($act === 'login') {
+if ($act == 'login') {
     $auth->login(); 
-}
-else {
-    $auth->checkLogin(); 
+} else {
+    $auth->check_login();
     include '../admin/views/layout/header.php';
+
     match ($act) {
-        '/' => $home->views_home(),   
+        '/' => $home->views_home(),
         'products' => $product->view_products(),
         'form_add_product' => $product->form_add(),
         'post_product' => $product->add_products(),
-        'form_update_product' => $product->form_update($_GET['id']),
+        'form_update_product' => isset($_GET['id']) ? $product->form_update($_GET['id']) : $home->views_home(),
         'update_product' => $product->update_products(),
         'delete_product' => $product->delete_products(),
         'category' => $product->view_category(),
         'users' => $user->view_users(),
+        'logout' => $auth->logout(),
         default => $home->views_home()
     };
 

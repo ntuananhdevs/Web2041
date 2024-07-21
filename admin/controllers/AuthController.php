@@ -1,63 +1,48 @@
 <?php
-class AuthController
-{
+class AuthController {
     public $user;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->user = new User();
     }
 
-    public function startSession()
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-    }
-
-    public function checkLogin()
-    {
-        $this->startSession();
-
-        if (!isset($_SESSION['user_id']) || $_SESSION['role'] == 'admin') {
-            header('Location: ?act=home');
-        } else {
-            header('Location: ?act=login');
-        }
-    }
-
-    public function login()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-
-            $email = isset($_POST['email']) ? trim($_POST['email']) : '';
-
-            $password = isset($_POST['password']) ? trim($_POST['password']) : '';
-
-            $user = $this->user->auth($email, $password);
-
-
-            if ($user) {
-                $this->startSession();
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['role'] = $user['role'];
-
-                header('Location: ?act=home');
-                exit();
+    public function login() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $_POST['email'] ?? '';
+            $password = $_POST['password'] ?? '';
+            $data = $this->user->auth($email, $password);
+    
+            if ($data) {
+                if ($data['role'] == 'Admin') {
+                    session_start();
+                    $_SESSION['user_id'] = $data['id'];
+                    $_SESSION['email'] = $data['email'];
+                    $_SESSION['role'] = $data['role'];
+                    header("Location: ?act=/");
+                    exit();
+                } else {
+                    echo "Only admin can login.";
+                }
             } else {
-                return "data user not found. login failed";
+                echo "Incorrect email or password.";
             }
-        } else {
-            include './views/auth/login.php';
+        }
+        require '../admin/views/auth/login.php';
+    }
+    
+    public function check_login() {
+        session_start();
+        if (!isset($_SESSION['user_id']) || !isset($_SESSION['email'])) {
+            header("Location: ?act=login");
+            exit();
         }
     }
-    function logout()
-    {
-        $this->startSession();
+    public function logout() {
+        session_start();
         session_unset();
         session_destroy();
-        header('Location: ?act=login');
+        header("Location: ?act=login");
         exit();
-    }
+    }    
 }
+?>

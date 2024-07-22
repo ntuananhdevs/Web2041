@@ -24,16 +24,23 @@ class User {
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':email', $email);
             $stmt->execute();
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($user && password_verify($password, $user['password'])) {
-                return $user;
+            $user = $stmt->fetch(PDO::FETCH_ASSOC); // Sử dụng fetch để lấy một bản ghi
+    
+            if ($user) {
+            
+                if (password_verify($password, $user['password'])) {
+                    return $user;
+                } else {
+                    echo "Password verification failed";
+                }
+            } else {
+                echo "User not found";
             }
             return false;
-
         } catch(PDOException $e) {
             error_log("Database query error: " . $e->getMessage());
             return false; 
         }
     }
+    
 }

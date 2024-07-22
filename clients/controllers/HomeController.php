@@ -14,10 +14,8 @@ class HomeController{
         if (isset($_GET['id'])) {
             $product_id = $_GET['id'];
 
-            // Tăng lượt xem
             $this->home->incrementViews($product_id);
 
-            // Lấy thông tin chi tiết sản phẩm
             $product = $this->home->getProductById($product_id);
 
             if ($product) {

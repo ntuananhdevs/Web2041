@@ -11,7 +11,7 @@ class AuthController {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
             $data = $this->user->auth($email, $password);
-    
+            // var_dump($data);    die();
             if ($data) {
                 if ($data['role'] == 'Admin') {
                     session_start();
@@ -21,10 +21,10 @@ class AuthController {
                     header("Location: ?act=/");
                     exit();
                 } else {
-                    echo "Only admin can login.";
+                    $error = "Ban khong co quyen truy cap";
                 }
             } else {
-                echo "Incorrect email or password.";
+                $error = "Tai khoan hoac mat khau khong chinh xac";
             }
         }
         require '../admin/views/auth/login.php';

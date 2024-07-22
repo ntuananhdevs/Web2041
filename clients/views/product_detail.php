@@ -220,6 +220,10 @@
             font-family: TTNormsProMedium, MyriadSemibold, "Segoe UI", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif;
             font-size: 18px;
 }
+.bao_hanh p{
+    font-size: 12px;
+    margin-top: 0;
+}
     </style>
 </head>
 <body>
@@ -231,7 +235,9 @@
             <div class="bottom-detail">
                 <div class="product-info">
                     <p class="name-product text_detail"><?php echo $product['name_product']; ?></p>
-                    <p>Bảo hành 12 tháng</p>
+                    <div class="bao_hanh">
+                        <p>Bảo hành 12 tháng</p>
+                    </div>
                     <p class="sale">Deal: $<?php echo $product['sale']; ?></p>
                     <p class="price">Giá gốc: $<?php echo $product['price']; ?></p>
                     <p class="quantity">Quantity: <?php echo $product['quantity']; ?></p>

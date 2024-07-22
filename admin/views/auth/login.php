@@ -19,7 +19,8 @@
                     <input type="email" name="email"  placeholder="Email">
 
                     <label for="password">Password</label>
-                     <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password">
+
                     <button type="submit" name="submit">Login</button>
                 </div>
             </form>

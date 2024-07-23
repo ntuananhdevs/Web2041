@@ -16,9 +16,7 @@
         label{
             margin-left: 0;
         }
-        input{
-           
-        }
+
     </style>
 </head>
 <body>

@@ -61,4 +61,15 @@ class Category {
             echo "Connection failed: " . $e->getMessage();  
         }
     }
+    public function getCategorybyID($id) {
+        try {
+            $sql = "SELECT * FROM categories WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt-> fetchAll();
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+    }
 }

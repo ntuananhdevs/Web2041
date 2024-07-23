@@ -249,18 +249,24 @@
                 </div>
                 
             </div>
-            <div class="comments ">
-                    <span class="text_detail">Binh Luận</span>
-                    <textarea placeholder="Write your comment here..."></textarea>
-                    <button class="submit-comment">Submit</button>
-                    <!-- Hiển thị các bình luận ở đây -->
-                    <div class="comment-list">
-                        <!-- Ví dụ về bình luận -->
+            <div class="comments">
+                <span class="text_detail">Bình Luận</span>
+                <form method="post" action="?act=add_comment">
+                    <textarea name="comment_text" placeholder="Write your comment here..."></textarea>
+                    <input type="hidden" name="product_id" value="<?php echo $productId; ?>">
+                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>"> <!-- Giả sử bạn có session user_id -->
+                    <button type="submit" class="submit-comment">Submit</button>
+                </form>
+            <!-- Hiển thị các bình luận ở đây -->
+                <div class="comment-list">
+                    <?php foreach ($comments as $comment): ?>
                         <div class="comment">
-                            <p><strong>User1:</strong> Great product!</p>
+                            <p><strong><?php echo htmlspecialchars($comment['username']); ?>:</strong> <?php echo htmlspecialchars($comment['comment_text']); ?></p>
+                            <span><?php echo htmlspecialchars($comment['created_at']); ?></span>
                         </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
+            </div>
                 <div class="description ">
                     <span class="text_detail">Thông số kỹ thuật</span>
                     <div class="specifications">

@@ -96,9 +96,9 @@ class Products {
                     JOIN categories c ON p.category_id = c.id
                     WHERE p.id = :id";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':id', $id); // Sử dụng tham số đặt tên
+            $stmt->bindParam(':id', $id); 
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC); // Sử dụng PDO::FETCH_ASSOC để trả về dạng mảng kết hợp
+            return $stmt->fetchAll(PDO::FETCH_ASSOC); 
         } catch (Exception $e) {
             echo "Failed to get product: " . $e->getMessage();
         }

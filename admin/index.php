@@ -33,8 +33,23 @@ if ($act == 'login') {
         'form_update_product' => $product->form_update($_GET['id']),
         'update_product' => $product->update_products(),
         'delete_product' => $product->delete_products(),
+
+
         'category' => $product->view_category(),
+        'form_add_category' => $product->form_add_category(),
+        'post_category'=> $product->add_category(),
+        'delete_category'=> $product->delete_category(),
+        'form_update_category'=> $product->form_update_category($_GET['id']),
+        'update_category'=> $product->update_category(),
+
+
         'users' => $user->view_users(),
+        'form_add_user' => $user->form_add_user(),
+        'post_users' => $user->add_users(),
+
+        'form_update_user' => $user->form_update_user($_GET['id']),
+        'update_users' => $user->update_users(),
+        'delete_user' => $user->delete_users(),
         'logout' => $auth->logout(),
         default => $home->views_home()
     };

@@ -20,7 +20,7 @@ let prev = document.getElementById("prev");
 let next = document.getElementById("next");
 let count = 0;
 let index = items.length - 1;
-let auto = setInterval(() => { next.click() }, 5000);
+// let auto = setInterval(() => { next.click() }, 5000);
 
 next.addEventListener('click', function() {
     count = (count + 1) > index ? 0 : count + 1;
@@ -39,7 +39,8 @@ function reloadslide() {
     listimg.style.left = -checkleft + 'px';
 }
 
-function resetAutoSlide() {
-    clearInterval(auto);
-    auto = setInterval(() => { next.click() }, 5000);
-}
+// function resetAutoSlide() {
+//     clearInterval(auto);
+//     auto = setInterval(() => { next.click() }, 7000);
+// }
+

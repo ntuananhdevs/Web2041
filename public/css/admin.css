@@ -53,10 +53,9 @@ nav{
     color: rgba(26, 101, 246, 1);
 }
 .logout-admin{
-    margin-left: 650px;
+    margin-left: 740px;
     display: flex;
     align-items: center;
-    gap: 15px;
 }
 .logout-admin a{
     text-decoration: none;
@@ -65,13 +64,15 @@ nav{
     font-size: 19px;
 
 }
+
+.logout-admin ion-icon{
+    align-items: center;
+    margin-right: 10px;
+}
 .logout-admin a:hover{
     text-decoration: none;
     color: rgba(26, 101, 246, 1);
 }
-
-
-
 footer{
     background-color: rgba(229, 231, 235, 1);
     text-align: center;
@@ -164,4 +165,20 @@ button:hover {
     gap: 15px;
     justify-content: center;
     text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #757373;
+    margin-left: 35px;
+}
+select{
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-left: 35px;
+
 }

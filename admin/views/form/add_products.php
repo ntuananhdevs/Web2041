@@ -30,29 +30,30 @@
                         <input type="text" name="name_product" id="name_product" placeholder="Tên Sản Phẩm">
                     </div>
                     <div class="form-row">
-                        <label for="gia">Giá</label>
-                        <input type="text" name="price" id="gia" placeholder="Giá Gốc">
-                    </div>
-                    
-                    <div class="form-row">
-                        <label for="sale">Giá Khuyến Mãi</label>
-                        <input type="text" name="sale" id="sale" placeholder="Giá Khuyến Mãi">
-                    </div>
-                    
-                    <div class="form-row">
-                        <label for="quantity">Số Lượng</label>
-                        <input type="number" name="quantity" id="quantity" placeholder="Số Lượng">
-                    </div>
-                    
-                    <div class="form-row">
                         <label for="hedieuhanh">Hệ Điều Hành</label>
                         <input type="text" name="description_1" id="hedieuhanh" placeholder="Hệ Điều Hành">
                     </div>
-                   
+
                     <div class="form-row">
+                        <label for="sale">Giá</label>
+                        <input type="text" name="sale" id="price" placeholder="Giá Gốc">
+                    </div>
+
+                    <div class="form-row">
+                            <label for="manhinh">Kích Thước Màn Hình</label>
+                            <input type="text" name="screen_size" id="manhinh" placeholder="Kích Thước Màn Hình">
+                        </div>
+  
+                        <div class="form-row">
                         <label for="cpu">CPU</label>
                         <input type="text" name="description_2" id="cpu" placeholder="CPU">
                     </div>
+
+                    <div class="form-row">
+                        <label for="gia">Giá Khuyến Mãi</label>
+                        <input type="text" name="sale" id="gia" placeholder="Giá Khuyến Mãi">
+                    </div>
+
                     
                     <div class="form-row">
                         <label for="gpu">GPU</label>
@@ -65,8 +66,8 @@
                     </div>
                     
                     <div class="form-row">
-                        <label for="pin">Dung Lượng Pin</label>
-                        <input type="text" name="description_5" id="pin" placeholder="Dung Lượng Pin">
+                        <label for="pin">Số Lượng</label>
+                        <input type="number" name="quantity"  placeholder="Số Lượng">
                     </div>
                     
                     <div class="form-row">
@@ -75,9 +76,9 @@
                     </div>
                     
                     <div class="form-row">
-                            <label for="manhinh">Kích Thước Màn Hình</label>
-                            <input type="number" name="screen_size" id="manhinh" placeholder="Kích Thước Màn Hình">
-                        </div>
+                        <label for="quantity">Description 5</label>
+                        <input type="number" name="description_5" id="quantity" placeholder="description 5">
+                    </div>
                 </div>
                 
                 <div class="bottom">

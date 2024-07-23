@@ -30,7 +30,7 @@ if ($act == 'login') {
         'products' => $product->view_products(),
         'form_add_product' => $product->form_add(),
         'post_product' => $product->add_products(),
-        'form_update_product' => isset($_GET['id']) ? $product->form_update($_GET['id']) : $home->views_home(),
+        'form_update_product' => $product->form_update($_GET['id']),
         'update_product' => $product->update_products(),
         'delete_product' => $product->delete_products(),
         'category' => $product->view_category(),

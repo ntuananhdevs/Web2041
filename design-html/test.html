@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../public/css/clients.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* CSS cho overlay tìm kiếm */
+        .search-overlay {
+            position: fixed;
+            top: 82px; /* Điều chỉnh theo chiều cao của nav */
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: center;
+            transition: height .3s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease;
+            backdrop-filter: blur(0px);
+        }
+        .search-overlay.active {
+            height: 300px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+        .search-overlay input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .search-overlay p {
+            margin-top: 10px;
+        }
+        .search-overlay ul {
+            list-style: none;
+            padding: 0;
+        }
+        .search-overlay ul li {
+            margin-top: 5px;
+        }
+        .search-overlay ul li a {
+            text-decoration: none;
+            color: black;
+        }
+        /* CSS cho nội dung bị mờ */
+        .blurred {
+            filter: blur(5px);
+        }
+        /* Không làm mờ thanh nav */
+        .no-blur {
+            z-index: 2000;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="no-blur">
+        <div class="header-nav">
+            <div class="header-logo">
+                <div class="logo-header">
+                    <a href="#">
+                        <img src="../public/img/header-img/ROG_normal.svg" alt="">
+                        <img src="../public/img/header-img/rog_hover.svg" alt="">
+                    </a>
+                </div>
+                <div class="logo-header">
+                    <a href="#">
+                        <img src="../public/img/header-img/ProArt.svg" alt="">
+                        <img src="../public/img/header-img/art_hover.svg" alt="">
+                    </a>
+                </div>
+                <div class="logo-header">
+                    <a href="#">
+                        <img src="../public/img/header-img/ioT.svg" alt="">
+                        <img src="../public/img/header-img/ioT_hover.svg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <a href="#">Sự kiện</a>
+                <a href="#">Gaming</a>
+                <a href="#">Doanh Nghiệp</a>
+            </div>
+        </div>
+        <div class="nav-menu">
+            <div class="logo-nav">
+                <img src="../public/img/header-img/AsusTek.png" alt="">
+            </div>
+            <div class="nav-center">
+                <a href="?act=laptop">Laptop</a>
+                <a href="?act=phone">Thiết bị di động</a>
+                <a href="#">Màn Hình / Máy Bàn</a>
+                <a href="#">Bo Mạch Chủ / Linh Kiện</a>
+                <a href="#">Thiết Bị Mạng / IoT / Servers</a>
+                <a href="#">Phụ Kiện</a>
+            </div>
+            <div class="nav-right">
+                <div class="text">
+                    <a href="#">Mua hàng</a>
+                    <a href="#">Hỗ Trợ</a>
+                </div>
+                <div class="icon-nav">
+                    <a href="#" id="searchIcon"><ion-icon name="search-outline"></ion-icon></a>
+                    
+                    <a href="#"><ion-icon name="cart-outline"></ion-icon></a>
+                    <div class="dropdown">
+                        <a href="#" id="userIcon"><ion-icon name="person-outline"></ion-icon></a>
+                        <div class="dropdown-menu">
+                            <a href="../app/views/login.html">Đăng nhập</a>
+                            <a href="#">Tài khoản của tôi</a>
+                            <a href="#">Kiểm tra đơn hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <div class="main-content">
+        <p>Nội dung của bạn ở đây.</p>
+        <!-- Nội dung khác -->
+        <p>Nội dung khác ở đây.</p>
+        <p>Nội dung khác  không đây.</p>
+
+        </p>
+    </div>
+
+    <!-- Phần overlay tìm kiếm -->
+    
+
+    <script>
+        let lastScrollTop = 0;
+
+        // JavaScript để hiển thị và ẩn overlay tìm kiếm
+        document.getElementById('searchIcon').addEventListener('click', function() {
+            document.getElementById('searchOverlay').classList.toggle('active');
+            document.querySelector('.main-content').classList.toggle('blurred');
+        });
+
+        // Đóng overlay khi click ra ngoài
+        document.addEventListener('click', function(event) {
+            var searchOverlay = document.getElementById('searchOverlay');
+            if (!searchOverlay.contains(event.target) && !event.target.closest('#searchIcon')) {
+                searchOverlay.classList.remove('active');
+                document.querySelector('.main-content').classList.remove('blurred');
+            }
+        });
+
+        // Ngăn chặn đóng overlay khi click vào bên trong overlay
+        document.querySelector('.search-overlay').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                document.getElementById('searchOverlay').classList.remove('active');
+                document.querySelector('.main-content').classList.remove('blurred');
+            }
+        });
+    </script>
+</body>
+</html>

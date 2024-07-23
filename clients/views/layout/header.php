@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="../public/css/clients.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../public/js/clients.js"></script>
 </head>
 <body>
-    <nav>
+    <nav class="no-blur">
         <div class="header-nav">
             <div class="header-logo">
                 <div class="logo-header">
@@ -37,13 +38,15 @@
                 <a href="#">Doanh Nghiệp</a>
             </div>
         </div>
-        <div class="nav-menu">
+        <div class="nav-menu ">
             <div class="logo-nav">
+                <a href="?act=/">
                 <img src="../public/img/header-img/AsusTek.png" alt="">
+                </a>
             </div>
             <div class="nav-center">
-                <a href="#">Laptop</a>
-                <a href="#">Thiết bị di động</a>
+                <a href="?act=laptop">Laptop</a>
+                <a href="?act=phone">Thiết bị di động</a>
                 <a href="#">Màn Hình / Máy Bàn</a>
                 <a href="#">Bo Mạch Chủ / Linh Kiện</a>
                 <a href="#">Thiết Bị Mạng / IoT / Servers</a>
@@ -55,8 +58,30 @@
                     <a href="#">Hỗ Trợ</a>
                 </div>
                 <div class="icon-nav">
-                    <a href="#"><ion-icon name="search-outline"></ion-icon></a>
+                    <ion-icon name="search-outline" id="searchIcon"></ion-icon>
                     <a href="#"><ion-icon name="cart-outline"></ion-icon></a>
+
+                    <div class="search-overlay" id="searchOverlay">
+                        <div class="search-nav">
+                            <div class="inputsearch">
+                                <ion-icon name="search-outline"></ion-icon>
+                                <form method="GET" action="?act=search">
+                                    <input type="text" name="search" placeholder="Tìm kiếm theo tên, ID hoặc danh mục" value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>">
+                                    <input type="hidden" name="act" value="search">
+                                </form>
+
+                            </div>
+                            <ul class="list-search">
+                            <p>Liên Kết Nhanh</p>
+
+                                <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>Laptop</a></li>
+                                <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>Dien Thoai</a></li>
+                                <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>AirPods</a></li>
+                                <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>AirTag</a></li>
+                                <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>Apple Trade In</a></li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="dropdown">
                         <a href="#" id="userIcon"><ion-icon name="person-outline"></ion-icon></a>
                         <div class="dropdown-menu">
@@ -69,4 +94,37 @@
             </div>
         </div>
     </nav>
+
+<script>
+let lastScrollTop = 0;
+
+document.getElementById('searchIcon').addEventListener('click', function() {
+    document.getElementById('searchOverlay').classList.toggle('active');
+    document.querySelector('.main-content').classList.toggle('blurred');
+});
+
+// Close overlay when clicking outside
+document.addEventListener('click', function(event) {
+    var searchOverlay = document.getElementById('searchOverlay');
+    if (!searchOverlay.contains(event.target) && !event.target.closest('#searchIcon')) {
+        searchOverlay.classList.remove('active');
+        document.querySelector('.main-content').classList.remove('blurred');
+    }
+});
+
+// Prevent closing overlay when clicking inside it
+document.querySelector('.search-overlay').addEventListener('click', function(event) {
+    event.stopPropagation();
+});
+
+// Close search overlay on scroll
+window.addEventListener('scroll', function() {
+    let st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop) {
+        document.getElementById('searchOverlay').classList.remove('active');
+        document.querySelector('.main-content').classList.remove('blurred');
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+});
+</script>
 

@@ -28,6 +28,7 @@ class Products {
             echo "Connection failed: " . $e->getMessage();
         }
     }
+    
     public function searchProducts($search) {
         $sql = "SELECT products.*, categories.name 
         FROM products 

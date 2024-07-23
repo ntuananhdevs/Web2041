@@ -269,11 +269,16 @@ header{
     color: #808080;
     text-align: center;
     height: 300px;
+    overflow: hidden;
     
 }
 .box img{
     width: 400px;
     height: 250px;
+}
+.box img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
 }
 .text-box {
     margin-top: 10px;
@@ -346,6 +351,10 @@ article{
     height: 120px;
     object-fit: cover;
 }
+.img-product img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
 .description-box ul {
     margin-left: 20px;
 }
@@ -355,6 +364,7 @@ article{
 .header-box{
     border-bottom: solid 1px #808080;
     padding-bottom: 10px; 
+    overflow: hidden;
 }
 .price span{
     font-size: 12px;
@@ -456,7 +466,9 @@ footer{
 .sanphamnoibat{
     text-align: center;
     color: rgb(102, 102, 102);
-    margin-top: 60px;
+    margin-top: 10px;
+    padding-top: 50px;
+
 }
 .viewsp{
     margin-left: auto;

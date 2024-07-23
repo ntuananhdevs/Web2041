@@ -42,12 +42,13 @@
                     </div>
                 </div>
             </div>
-            <div class="sanphamnoibat">
-                <h2>San Pham Noi Bat</h2>
-            </div>
+
     </header>
     <article>
         <div class="content">
+            <div class="sanphamnoibat">
+                <h2>Sản Phẩm Nổi Bật</h2>
+            </div>
             <div class="products">
             <?php foreach ($top_products as $product): ?>
                 <div class="box-product">
@@ -67,7 +68,6 @@
                             <ion-icon name="eye-outline"></ion-icon>
                             <p><?php echo $product['views'];?></p>
                             </div>
-                            
                         </div>
                     </div>
                     <div class="price">

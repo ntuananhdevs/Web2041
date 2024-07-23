@@ -26,4 +26,39 @@ class Category {
             echo "Connection failed: " . $e->getMessage();
         }
     }
+    public function add($name, $description) {
+        try {
+            $sql = "INSERT INTO categories (name, description) VALUES (:name, :description)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':description', $description);
+            return $stmt->execute();
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+    }
+
+    public function update($id, $name, $description) {
+        try {
+            $sql = "UPDATE categories SET name = :name, description = :description WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':description', $description);
+            return $stmt->execute();
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+    }
+
+    public function delete($id) {
+        try {
+            $sql = "DELETE FROM categories WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            return $stmt->execute();
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();  
+        }
+    }
 }

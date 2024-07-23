@@ -17,7 +17,6 @@ class Home{
         }
     }
 
-
     public function getProductById($product_id) {
         try {
             $sql = "SELECT p.*, c.name as category_name FROM products p JOIN categories c ON p.category_id = c.id WHERE p.id = ?";
@@ -29,7 +28,6 @@ class Home{
             return false;
         }
     }
-
     public function incrementViews($product_id) {
         try {
             $sql = "UPDATE products SET views = views + 1 WHERE id = ?";
@@ -39,5 +37,4 @@ class Home{
             echo "Failed to update product views: " . $e->getMessage();
         }
     }
-
 }

@@ -19,6 +19,8 @@ nav {
     padding: 8px;
     justify-content: center;
     gap: 750px;
+    /* position: sticky; */
+
 }
 .header-logo {
     display: flex;

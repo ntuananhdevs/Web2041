@@ -55,5 +55,8 @@ class HomeController{
         $results = $this->products->searchProducts($_GET['search']);
         require_once '../clients/views/result.php';
     }
+    // public function login() {
+    //     require_once '../clients/views/auth/login.php';
+    // }
     
 }

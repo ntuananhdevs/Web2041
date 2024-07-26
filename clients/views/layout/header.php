@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../public/js/clients.js"></script>
 </head>
+
 <body>
     <nav class="no-blur">
         <div class="header-nav">
@@ -41,7 +43,7 @@
         <div class="nav-menu ">
             <div class="logo-nav">
                 <a href="?act=/">
-                <img src="../public/img/header-img/AsusTek.png" alt="">
+                    <img src="../public/img/header-img/AsusTek.png" alt="">
                 </a>
             </div>
             <div class="nav-center">
@@ -69,10 +71,9 @@
                                     <input type="text" name="search" placeholder="Tìm kiếm theo tên, ID hoặc danh mục" value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>">
                                     <input type="hidden" name="act" value="search">
                                 </form>
-
                             </div>
                             <ul class="list-search">
-                            <p>Liên Kết Nhanh</p>
+                                <p>Liên Kết Nhanh</p>
 
                                 <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>Laptop</a></li>
                                 <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>Dien Thoai</a></li>
@@ -85,9 +86,15 @@
                     <div class="dropdown">
                         <a href="#" id="userIcon"><ion-icon name="person-outline"></ion-icon></a>
                         <div class="dropdown-menu">
-                            <a href="../app/views/login.html">Đăng nhập</a>
-                            <a href="#">Tài khoản của tôi</a>
-                            <a href="#">Kiểm tra đơn hàng</a>
+                            <?php if (isset($_SESSION['user_id'])) : ?>
+                                <a href="?act=logout">Đăng xuất</a>
+                                <a href="?act=profile">Tài khoản của tôi</a>
+                                <a href="?act=orders">Kiểm tra đơn hàng</a>
+                            <?php else : ?>
+                                <a href="?act=login">Đăng nhập</a>
+                                <a href="?act=profile">Tài khoản của tôi</a>
+                                <a href="?act=orders">Kiểm tra đơn hàng</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -95,36 +102,35 @@
         </div>
     </nav>
 
-<script>
-let lastScrollTop = 0;
+    <script>
+        let lastScrollTop = 0;
 
-document.getElementById('searchIcon').addEventListener('click', function() {
-    document.getElementById('searchOverlay').classList.toggle('active');
-    document.querySelector('.main-content').classList.toggle('blurred');
-});
+        document.getElementById('searchIcon').addEventListener('click', function() {
+            document.getElementById('searchOverlay').classList.toggle('active');
+            document.querySelector('.main-content').classList.toggle('blurred');
+        });
 
-// Close overlay when clicking outside
-document.addEventListener('click', function(event) {
-    var searchOverlay = document.getElementById('searchOverlay');
-    if (!searchOverlay.contains(event.target) && !event.target.closest('#searchIcon')) {
-        searchOverlay.classList.remove('active');
-        document.querySelector('.main-content').classList.remove('blurred');
-    }
-});
+        // Close overlay when clicking outside
+        document.addEventListener('click', function(event) {
+            var searchOverlay = document.getElementById('searchOverlay');
+            if (!searchOverlay.contains(event.target) && !event.target.closest('#searchIcon')) {
+                searchOverlay.classList.remove('active');
+                document.querySelector('.main-content').classList.remove('blurred');
+            }
+        });
 
-// Prevent closing overlay when clicking inside it
-document.querySelector('.search-overlay').addEventListener('click', function(event) {
-    event.stopPropagation();
-});
+        // Prevent closing overlay when clicking inside it
+        document.querySelector('.search-overlay').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
 
-// Close search overlay on scroll
-window.addEventListener('scroll', function() {
-    let st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > lastScrollTop) {
-        document.getElementById('searchOverlay').classList.remove('active');
-        document.querySelector('.main-content').classList.remove('blurred');
-    }
-    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-});
-</script>
-
+        // Close search overlay on scroll
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                document.getElementById('searchOverlay').classList.remove('active');
+                document.querySelector('.main-content').classList.remove('blurred');
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        });
+    </script>

@@ -12,7 +12,7 @@
     <nav>
         <div class="content-admin">
             <div class="logo-admin">
-                <img src="../public/img/logo2.png" alt="logo">
+                <img src="../public/img/header-img/rog_hover.svg" alt="logo">
             </div>
             <div class="menu-admin">
                 <ul>

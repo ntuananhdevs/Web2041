@@ -29,12 +29,32 @@ class Home{
         }
     }
     public function incrementViews($product_id) {
+        if (!isset($_SESSION['viewed_products'])) {
+            $_SESSION['viewed_products'] = [];
+        }
+    
+        if (!in_array($product_id, $_SESSION['viewed_products'])) {
+            try {
+                $sql = "UPDATE products SET views = views + 1 WHERE id = ?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute([$product_id]);
+    
+                $_SESSION['viewed_products'][] = $product_id;
+            } catch (Exception $e) {
+                echo "Failed to update product views: " . $e->getMessage();
+            }
+        }
+    }
+    public function get_userbyid($id) {
         try {
-            $sql = "UPDATE products SET views = views + 1 WHERE id = ?";
+            $sql = "SELECT * FROM users WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute([$product_id]);
-        } catch (Exception $e) {
-            echo "Failed to update product views: " . $e->getMessage();
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $user = $stmt->fetchAll();
+            return $user;
+        } catch(PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
         }
     }
 }

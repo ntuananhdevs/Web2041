@@ -36,12 +36,12 @@
 
                     <div class="form-row">
                         <label for="sale">Giá</label>
-                        <input type="text" name="sale" id="price" placeholder="Giá Gốc">
+                        <input type="text" name="price" placeholder="Giá Gốc">
                     </div>
 
                     <div class="form-row">
                             <label for="manhinh">Kích Thước Màn Hình</label>
-                            <input type="text" name="screen_size" id="manhinh" placeholder="Kích Thước Màn Hình">
+                            <input type="number" name="screen_size" id="manhinh" placeholder="Kích Thước Màn Hình">
                         </div>
   
                         <div class="form-row">

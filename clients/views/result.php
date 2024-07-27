@@ -1,7 +1,7 @@
 <div class="content" style="margin-top: 0;">
     <div class="products">
         <?php if (empty($results)): ?>
-            <img src="../public/img/404-2.png" alt="" width="1240px" >
+            <img src="../public/img/no-result.png" alt="" width="1240px" >
         <?php else: ?>
             <?php foreach ($results as $product): ?>
                 <div class="box-product">

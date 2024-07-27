@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="icon" type="image/svg" href="../public/img/header-img/rog_hover.svg" />
+
     <link rel="stylesheet" href="../public/css/login.css">
     <style>
         .form-container{
@@ -35,7 +37,7 @@
     <div class="content-form">
         <div class="form-container">
             <div class="logo">
-                <img src="../public/img/logo2.png" alt="Logo">
+                <img src="../public/img/header-img/rog_hover.svg" alt="Logo">
                 <p>Register</p>
             </div>
             <form action="?act=register" method="post">

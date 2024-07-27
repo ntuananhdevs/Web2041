@@ -8,7 +8,17 @@ class Category {
 
     public function getCategories() {
         try {
-            $sql = "SELECT * FROM categories";
+           $sql = "SELECT 
+                    c.id, 
+                    c.name, 
+                    c.description, 
+                    COUNT(p.id) AS product_count
+                FROM 
+                    categories c
+                LEFT JOIN 
+                    products p ON c.id = p.category_id
+                GROUP BY 
+                    c.id, c.name, c.description";
             $stmt = $this->conn->prepare($sql);
             $stmt -> execute();
             return $stmt-> fetchAll();

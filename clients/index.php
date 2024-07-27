@@ -15,22 +15,35 @@ $act = $_GET['act'] ?? '/';
 $home = new HomeController();
 $auth = new AuthController();
 
-if($act == 'login'){
-    $auth->login();
-}else if($act == 'register'){
-    $auth->register();
-}else if($act == 'logout'){
-    $auth->logout();
-}else{
-include '../clients/views/layout/header.php';
-match ($act) {
-    '/' => $home->view_home(),
-    'product_detail' => $home->product_detail(),
-    'laptop' => $home->view_laptop(),
-    'phone' => $home->view_phone(),
-    'search' => $home->view_result(),
-    default => $home->view_home(),
-}; 
+$title = match ($act) {
+    'login' => 'Login',
+    'register' => 'Register',
+    'logout' => 'Logout',
+    '/' => 'Home',
+    'product_detail' => 'Product Details',
+    'laptop' => 'Laptops',
+    'phone' => 'Phones',
+    'search' => 'Search Results',
+    'add_comment' => 'Add Comment',
+    default => 'Home',
+};
 
-include '../clients/views/layout/footer.php';
+if ($act == 'login') {
+    $auth->login();
+} elseif ($act == 'register') {
+    $auth->register();
+} elseif ($act == 'logout') {
+    $auth->logout();
+} else {
+    include '../clients/views/layout/header.php'; // Include header with dynamic title
+    match ($act) {
+        '/' => $home->view_home(),
+        'product_detail' => $home->product_detail(),
+        'laptop' => $home->view_laptop(),
+        'phone' => $home->view_phone(),
+        'search' => $home->view_result(),
+        'add_comment' => $home->add_comment(),
+        default => $home->view_home(),
+    };
+    include '../clients/views/layout/footer.php';
 }

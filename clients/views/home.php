@@ -71,13 +71,19 @@
                         </div>
                     </div>
                     <div class="price">
-                        <span>Giá khuyến Mãi </span>
-                        <p><?php echo $product['sale']; ?>đ</p>
-                        <div class="underline">
-                            <p><?php echo $product['price']; ?>đ</p>
-                            <span>TIET KIEM xx%</span>
-                        </div>
-                    </div>
+    <span>Giá khuyến mãi </span>
+    <p><?php echo number_format(floatval(str_replace('.', '', $product['sale'])), 0, ',', '.'); ?>đ</p>
+    <div class="underline">
+        <p><?php echo number_format(floatval(str_replace('.', '', $product['price'])), 0, ',', '.'); ?>đ</p>
+        <?php
+        $price = floatval(str_replace('.', '', $product['price']));
+        $sale = floatval(str_replace('.', '', $product['sale']));
+        $discountPercentage = (($price - $sale) / $price) * 100;
+        ?>
+        <span>TIẾT KIỆM <?php echo round($discountPercentage, 2); ?>%</span>
+    </div>
+</div>
+
                     <div class="description-box">
                         <ul>
                             <?php if (!empty($product['description_1'])): ?>

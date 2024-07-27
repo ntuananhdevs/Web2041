@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="icon" type="image/svg" href="../public/img/header-img/rog_hover.svg" />
     <link rel="stylesheet" href="../public/css/login.css">
     <style>
         .form-container {
@@ -66,7 +67,7 @@
     <div class="content-form">
         <div class="form-container">
             <div class="logo">
-                <img src="../public/img/logo2.png" alt="">
+                <img src="../public/img/header-img/rog_hover.svg" alt="">
                 <p>Login</p>
             </div>
             <form action="?act=login" method="post" enctype="multipart/form-data">

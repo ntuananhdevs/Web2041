@@ -10,7 +10,7 @@
     <div class="content-form">
         <div class="form-container">
             <div class="logo">
-                <img src="../public/img/logo2.png" alt="">
+                <img src="../public/img/header-img/rog_hover.svg" alt="">
                 <p>Login</p>
             </div>
             <form action="?act=login" method="post" enctype="multipart/form-data">

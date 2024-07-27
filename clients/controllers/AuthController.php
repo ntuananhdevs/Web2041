@@ -1,5 +1,4 @@
 <?php
-session_start();
 class AuthController
 {
     public $auth;
@@ -15,8 +14,9 @@ class AuthController
             // var_dump($data);    die();
             if ($data) {
                 if ($data['role'] == 'Customer') {
-                    session_start();
+                    // session_start();
                     $_SESSION['user_id'] = $data['id'];
+                    $_SESSION['username'] = $data['username'];
                     $_SESSION['email'] = $data['email'];
                     $_SESSION['role'] = $data['role'];
                     header("Location: ?act=/");
@@ -28,7 +28,7 @@ class AuthController
         }
         require '../clients/views/auth/login.php';
     }
-    
+
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = trim($_POST['username']);
@@ -41,6 +41,8 @@ class AuthController
             $errors = [];
             if (empty($username)) {
                 $errors['username'] = "Hãy Nhập Username";
+            }else if(strlen($username) > 14) {
+                $errors['username'] = "Username chỉ 14 ký tự";
             }
             if (empty($email)) {
                 $errors['email'] = "Email không được bỏ trống";

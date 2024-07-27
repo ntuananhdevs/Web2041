@@ -26,11 +26,11 @@ nav{
     font-weight: bold;
     font-size: 24px;
     gap: 10px;
+    
 }
 .logo-admin img{
-    width: 30px;
-    height: 30px;
-    object-fit: cover;
+    width: 85px;
+    height: 40px;
 }
 .menu-admin{
     display: flex;
@@ -53,11 +53,12 @@ nav{
     color: rgba(26, 101, 246, 1);
 }
 .logout-admin{
-    margin-left: 740px;
-    display: flex;
-    align-items: center;
+    margin-left: 700px;
+    
 }
 .logout-admin a{
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: #ffffff;
     font-weight: bold;
@@ -179,5 +180,5 @@ select{
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    margin-left: 35px;
+    /* margin-left: 35px; */
 }

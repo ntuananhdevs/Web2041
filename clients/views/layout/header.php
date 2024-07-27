@@ -1,16 +1,16 @@
+<?php require_once './models/home.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title><?php echo $title ?? 'Default Title'; ?></title>
+    <link rel="icon" type="image/svg" href="../public/img/header-img/rog_hover.svg" />
     <link rel="stylesheet" href="../public/css/clients.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../public/js/clients.js"></script>
 </head>
-
 <body>
     <nav class="no-blur">
         <div class="header-nav">
@@ -68,7 +68,7 @@
                             <div class="inputsearch">
                                 <ion-icon name="search-outline"></ion-icon>
                                 <form method="GET" action="?act=search">
-                                    <input type="text" name="search" placeholder="Tìm kiếm theo tên, ID hoặc danh mục" value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>">
+                                    <input type="text" name="search" placeholder="Tìm kiếm" value="<?php echo htmlspecialchars($_GET['search'] ?? ''); ?>">
                                     <input type="hidden" name="act" value="search">
                                 </form>
                             </div>
@@ -86,11 +86,16 @@
                     <div class="dropdown">
                         <a href="#" id="userIcon"><ion-icon name="person-outline"></ion-icon></a>
                         <div class="dropdown-menu">
+
                             <?php if (isset($_SESSION['user_id'])) : ?>
-                                <a href="?act=logout">Đăng xuất</a>
+                                <div class="hi">
+                                <p><ion-icon name="person-circle-outline"></ion-icon>Xin chào <?php echo $_SESSION['username']; ?></p>
+                                </div>
                                 <a href="?act=profile">Tài khoản của tôi</a>
                                 <a href="?act=orders">Kiểm tra đơn hàng</a>
+                                <a href="?act=logout">Đăng xuất</a>
                             <?php else : ?>
+
                                 <a href="?act=login">Đăng nhập</a>
                                 <a href="?act=profile">Tài khoản của tôi</a>
                                 <a href="?act=orders">Kiểm tra đơn hàng</a>

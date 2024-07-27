@@ -98,7 +98,7 @@
                     </div>
                     <div class="mota">
                         <label for="description">Mô tả chi tiết</label>
-                        <y name="description_7" id="description" class="description" placeholder="Nhập mô tả chi tiết sản phẩm"><?php echo $product_value['description_7'];?></y>
+                        <textarea name="description_7" id="description" class="description" placeholder="Nhập mô tả chi tiết sản phẩm"><?php echo $product_value['description_7'];?></textarea>
                     </div>
                 </div>
                 

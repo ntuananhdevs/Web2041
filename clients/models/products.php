@@ -75,12 +75,11 @@ class Products
     public function get_comment($product_id)
     {
         $sql = "
-    SELECT c.*, u.username
-    FROM comments AS c
-    JOIN users AS u ON c.user_id = u.id
-    WHERE c.product_id = :product_id
-";
-
+            SELECT c.*, u.username, u.avatar
+            FROM comments AS c
+            JOIN users AS u ON c.user_id = u.id
+            WHERE c.product_id = :product_id
+            ORDER BY c.created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':product_id', $product_id);
         $stmt->execute();

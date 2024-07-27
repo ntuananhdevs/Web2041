@@ -57,8 +57,16 @@
                 <div class="comment-list">
                     <?php foreach ($comments as $comment) : ?>
                         <div class="comment">
-                            <p><strong><?php echo ($comment['username']); ?>:</strong> <?php echo ($comment['content']); ?></p>
-                            <span><?php echo ($comment['created_at']); ?></span>
+                            <div class="avt">
+                                <img src="<?php echo $comment['avatar']; ?>" alt="avatar">
+                            </div>
+                            <div class="content-comment">
+                                <p><strong><?php echo ($comment['username']); ?>:</strong> <?php echo ($comment['content']); ?></p>
+                                <div class="date">
+                                    <span><?php echo ($comment['created_at']); ?></span>    
+                                </div>
+                            </div>
+
                         </div>
                     <?php endforeach; ?>
                 </div>

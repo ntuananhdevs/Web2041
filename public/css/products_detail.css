@@ -96,13 +96,27 @@ body {
 .comments {
     flex: 1;
 }
-
+.comment{
+    display: flex;
+    gap: 10px;
+}
+.comment img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 .comments h2 {
     margin-top: 20px;
     font-size: 1.8em;
     color: #333;
 }
-
+.date{
+    margin-top: 20px;
+}
+.date span{
+    margin-left: 400px;
+}
 .comments textarea {
     max-width: 600px;
     width: 600px;

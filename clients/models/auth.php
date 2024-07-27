@@ -20,17 +20,21 @@ class Auth
     }
     public function register($username, $email, $phone, $password) {
         try {
-            $sql = "INSERT INTO users (username, email, phone, password) VALUES (:username, :email, :phone, :password)";
+            $defaultAvatar = '../public/img/avt-default.png	';
+    
+            $sql = "INSERT INTO users (username, email, phone, password, avatar) 
+                    VALUES (:username, :email, :phone, :password, :avatar)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':phone', $phone);
             $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':avatar', $defaultAvatar);
             return $stmt->execute();
         } catch(PDOException $e) {
             $_SESSION['error'] = "SQL Error: " . $e->getMessage();
             return false;
-            }
+        }
     }
     public function forgotPassword($email) {
         try {

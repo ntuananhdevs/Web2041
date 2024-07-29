@@ -135,7 +135,7 @@
             <h2>Đăng nhập</h2>
 
             <div class="login-fb">
-                <div class="comment__operate">
+                <div class="comment__operate" id="fb-login-btn">
                     <i class="comment__operate__icon fab fa-facebook"></i>
                     <span>Đăng nhập bằng Facebook</span>
                 </div>
@@ -153,30 +153,62 @@
         </div>
     </div>
     <script>
+        //modal
         var modal = document.getElementById("myModal");
 
-        // Get the button that opens the modal
         var btn = document.getElementById("btn");
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks the button, open the modal 
         btn.onclick = function() {
             modal.style.display = "block";
         }
-
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
             modal.style.display = "none";
         }
-
-        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
             }
         }
+       </script>
+ 
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '849025356764898', // Thay thế với App ID của bạn
+                cookie     : true,
+                xfbml      : true,
+                version    : 'v20.0' // Đảm bảo version đúng và sử dụng không có dấu ngoặc
+            });
+
+            FB.AppEvents.logPageView(); // Ghi lại một sự kiện xem trang
+
+            // Thêm sự kiện nhấp vào nút đăng nhập
+            document.getElementById('fb-login-btn').onclick = function() {
+                FB.login(function(response) {
+                    if (response.status === 'connected') {
+                        // Người dùng đã đăng nhập và đã cho phép ứng dụng
+                        console.log('Successfully logged in', response);
+                        // Thực hiện các hành động sau khi đăng nhập thành công
+                    } else {
+                        console.log('User cancelled login or failed.');
+                    }
+                }, {scope: 'public_profile,email'}); // Các quyền cần thiết
+            };
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
 </body>
 

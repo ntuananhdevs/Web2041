@@ -119,6 +119,8 @@ nav {
 .nav-right{
     display: flex;
     align-items: center;
+    gap: 15px; /* Đặt khoảng cách hợp lý giữa các liên kết và icon */
+
 }
 .text a{
     color: #333;
@@ -165,7 +167,6 @@ nav {
     display: inline-block;
 
 }
-
 /* Dropdown menu */
 .dropdown-menu {
     width: 200px;
@@ -216,6 +217,7 @@ header{
     box-shadow:-5px -5px 12px #ffffff,
     5px 5px 12px rgba(0,0,0,.16);
     margin: auto;
+    
 }
 .btn{
     position: absolute;

@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        border-radius: 50%;
+        object-fit: cover;
+        
+    }
+</style>
+<body>
 
 <div class="container">
     <div class="row">
@@ -17,7 +32,7 @@
             <?php foreach ($users as $key => $value) :?>
                 <tr>
                     <td><?php echo $value['id'] ?></td>
-                    <td><img src=".<?php echo $value['avatar'] ?>" alt="avatar" width="80" height="50"  object-fit: cover></td>
+                    <td><img src=".<?php echo $value['avatar'] ?>" alt="avatar" width="40" height="40" boder-radius="50%" object-fix="cover"></td>
                     <td><?php echo $value['username'] ?></td>
                     <td><?php echo $value['email'] ?></td>
                     <td><?php echo $value['phone'] ?></td>

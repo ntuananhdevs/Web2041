@@ -1,6 +1,6 @@
 <article>
     <div class="content">
-        <div class="products-phone">
+        <div class="products-phone" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
             <?php foreach ($list_phone as $product) : ?>
                 <div class="box-product-phone">
                     <div class="header-box">
@@ -26,6 +26,7 @@
                         <span>Giá khuyến mãi </span>
                         <p><?php echo number_format(floatval(str_replace('.', '', $product['sale'])), 0, ',', '.'); ?>đ</p>
                         <div class="underline-phone">
+    
                             <p><?php echo number_format(floatval(str_replace('.', '', $product['price'])), 0, ',', '.'); ?>đ</p>
                             <?php
                             $price = floatval(str_replace('.', '', $product['price']));

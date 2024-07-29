@@ -1,4 +1,3 @@
-<?php require_once './models/home.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +6,15 @@
     <title><?php echo $title ?? 'Default Title'; ?></title>
     <link rel="icon" type="image/svg" href="../public/img/header-img/rog_hover.svg" />
     <link rel="stylesheet" href="../public/css/clients.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="../public/js/clients.js"></script>
 </head>
 <body>
-    <nav class="no-blur">
+    <nav class="no-blur" >
         <div class="header-nav">
             <div class="header-logo">
                 <div class="logo-header">
@@ -75,8 +77,8 @@
                             <ul class="list-search">
                                 <p>Liên Kết Nhanh</p>
 
-                                <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>Laptop</a></li>
-                                <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>Dien Thoai</a></li>
+                                <li><a href="?act=laptop"><ion-icon name="arrow-forward-outline"></ion-icon>Laptop</a></li>
+                                <li><a href="?act=phone"><ion-icon name="arrow-forward-outline"></ion-icon>Dien Thoai</a></li>
                                 <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>AirPods</a></li>
                                 <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>AirTag</a></li>
                                 <li><a href="#"><ion-icon name="arrow-forward-outline"></ion-icon>Apple Trade In</a></li>
@@ -106,7 +108,6 @@
             </div>
         </div>
     </nav>
-
     <script>
         let lastScrollTop = 0;
 
@@ -139,3 +140,6 @@
             lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
         });
     </script>
+    <script>
+  AOS.init();
+</script>

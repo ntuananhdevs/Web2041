@@ -75,7 +75,7 @@ class Products
     public function get_comment($product_id)
     {
         $sql = "
-            SELECT c.*, u.username, u.avatar
+            SELECT c.*, u.username, u.avatar, DATE_FORMAT(c.created_at, '%d-%m-%Y') AS created_date
             FROM comments AS c
             JOIN users AS u ON c.user_id = u.id
             WHERE c.product_id = :product_id

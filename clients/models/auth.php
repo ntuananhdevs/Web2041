@@ -20,7 +20,7 @@ class Auth
     }
     public function register($username, $email, $phone, $password) {
         try {
-            $defaultAvatar = '../public/img/avt-default.png	';
+            $defaultAvatar = './public/img/avt-default.png	';
     
             $sql = "INSERT INTO users (username, email, phone, password, avatar) 
                     VALUES (:username, :email, :phone, :password, :avatar)";

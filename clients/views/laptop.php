@@ -1,7 +1,7 @@
 
 <article>
     <div class="content">
-        <div class="products">
+        <div class="products" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
             <?php foreach ($list_laptop as $product) : ?>
                 <div class="box-product">
                     <div class="header-box">

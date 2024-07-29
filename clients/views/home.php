@@ -1,5 +1,5 @@
 <header>
-        <div class="slide-show">
+        <div class="slide-show" data-aos="fade-down" data-aos-delay="100" data-aos-duration="1000">
             <div class="list-img">
                 <div class="item">
                     <img src="../public/img/slidesh2.jpg" alt="">
@@ -19,10 +19,10 @@
                 <button id="next"><ion-icon name="arrow-forward-outline"></ion-icon></button>
             </div>
         </div>
-        <div class="text-sukien">
+        <div class="text-sukien" data-aos="fade-down" data-aos-delay="100" data-aos-duration="1000">
             <h1>Chương trình và Sự kiện</h1>
         </div>
-            <div class="box-sukien">
+            <div class="box-sukien" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                 <div class="box">
                     <img src="../public/img/sukien1.png" alt="">
                     <div class="text-box">
@@ -49,7 +49,7 @@
             <div class="sanphamnoibat">
                 <h2>Sản Phẩm Nổi Bật</h2>
             </div>
-            <div class="products">
+            <div class="products"  data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
             <?php foreach ($top_products as $product): ?>
                 <div class="box-product">
                     <div class="header-box">

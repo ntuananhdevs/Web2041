@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/css/products_detail.css">
     <link rel="stylesheet" href="../public/css/clients.css">
-    
+
     <style>
 
     </style>
@@ -58,45 +58,101 @@
                     <?php foreach ($comments as $comment) : ?>
                         <div class="comment">
                             <div class="avt">
-                                <img src="<?php echo $comment['avatar']; ?>" alt="avatar">
+                                <img src=".<?php echo $comment['avatar']; ?>" alt="avatar">
                             </div>
-                            <div class="content-comment">
-                                <p><strong><?php echo ($comment['username']); ?>:</strong> <?php echo ($comment['content']); ?></p>
-                                <div class="date">
-                                    <span><?php echo ($comment['created_at']); ?></span>    
+                            <div class="name-date">
+                                <div class="header-comment">
+                                    <div class="name-user">
+                                        <p><?php echo ($comment['username']); ?></p>
+                                    </div>
+                                    <div class="date">
+                                        <p><?php echo htmlspecialchars($comment['created_date'], ENT_QUOTES, 'UTF-8'); ?></p>
+                                    </div>
+                                </div>
+                                <div class="contents">
+                                    <p><?php echo ($comment['content']); ?></p>
+                                </div>
+                                <div class="icon">
+                                    <div class="comment__operate">
+                                        <i class="comment__operate__icon like fas fa-thumbs-up"></i>
+                                    </div>
+                                    <div class="comment__operate">
+                                        <i class="comment__operate__icon reply fas fa-reply"></i>
+                                        <p>Reply</p>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
 
-            <div class="description ">
-                <span class="text_detail">Thông số kỹ thuật</span>
+            <div class="description">
+                <span class="text-detail">Thông số kỹ thuật</span>
                 <div class="specifications">
-                    <p>Hệ điều hành: <?php echo $product['description_1']; ?></p>
-                    <p class="screen-size">Kích thuớc màn hình: <?php echo $product['screen_size']; ?> inch</p>
-                    <p>CPU: <?php echo $product['description_2']; ?></p>
-                    <p>Ram: <?php echo $product['description_3']; ?></p>
-                    <p>Dung Lương: <?php echo $product['description_4']; ?></p>
-                    <p><?php echo $product['description_5']; ?></p>
-                    <p><?php echo $product['description_6']; ?></p>
-                    <p><?php echo $product['description_7']; ?></p>
+                    <div class="spec-item">
+                        <div class="spec-label">Hệ điều hành:</div>
+                        <div class="spec-value"><?php echo $product['description_1']; ?></div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Kích thước màn hình:</div>
+                        <div class="spec-value"><?php echo $product['screen_size']; ?> inch</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">CPU:</div>
+                        <div class="spec-value"><?php echo $product['description_2']; ?></div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Ram:</div>
+                        <div class="spec-value"><?php echo $product['description_3']; ?></div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Dung lượng:</div>
+                        <div class="spec-value"><?php echo $product['description_4']; ?></div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Camera:</div>
+                        <div class="spec-value"><?php echo $product['description_5']; ?></div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Pin:</div>
+                        <div class="spec-value"><?php echo $product['description_6']; ?></div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Trọng lượng:</div>
+                        <div class="spec-value"><?php echo $product['description_7']; ?></div>
+                    </div>
                 </div>
             </div>
+
+
+
         </div>
     </div>
     <div id="myModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" data-aos="fade-down" data-aos-delay="100" data-aos-duration="1000">
             <span class="close">&times;</span>
-            <p>Đăng nhập để bình luận</p>           
-            <ion-icon name="thunderstorm-outline"></ion-icon>
+            <h2>Đăng nhập</h2>
+
+            <div class="login-fb">
+                <div class="comment__operate">
+                    <i class="comment__operate__icon fab fa-facebook"></i>
+                    <span>Đăng nhập bằng Facebook</span>
+                </div>
+                <!-- <div class="comment__operate">
+                    <i class="comment__operate__icon fab fa-google"></i>
+                    <span>Đăng nhập bằng Google</span>
+                </div> -->
+            </div>
             <a href="?act=login"><button>Đăng nhập</button></a>
+
+            <div class="register">
+                <p>Bạn chưa có tài khoản?</p>
+                <a href="?act=register">register</a>
+            </div>
         </div>
     </div>
     <script>
-        // Get the modal
         var modal = document.getElementById("myModal");
 
         // Get the button that opens the modal

@@ -2,10 +2,12 @@
 class ProductController{
     public $products;
     public $categorys;
+    public $comment;
 
     public function __construct(){
         $this->products = new Products();
         $this->categorys = new Category();
+        $this->comment = new Comment();
     }
 
     public function view_products(){
@@ -146,6 +148,11 @@ class ProductController{
                 echo "loi";
             }
         }
+    }
+    public function views_comments() {
+        $list_comments = $this->comment->get_all_comments();
+
+        require_once './views/comment.php';
     }
 }
 

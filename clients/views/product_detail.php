@@ -139,10 +139,12 @@
                     <i class="comment__operate__icon fab fa-facebook"></i>
                     <span>Đăng nhập bằng Facebook</span>
                 </div>
-                <!-- <div class="comment__operate">
-                    <i class="comment__operate__icon fab fa-google"></i>
+            </div>
+            <div class="login-gg">
+                <div class="comment__operate">
+                    <i class="comment__operate__icon gg -google"></i>
                     <span>Đăng nhập bằng Google</span>
-                </div> -->
+                </div>
             </div>
             <a href="?act=login"><button>Đăng nhập</button></a>
 
@@ -171,41 +173,61 @@
                 modal.style.display = "none";
             }
         }
-       </script>
- 
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    </script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <script>
         window.fbAsyncInit = function() {
             FB.init({
-                appId      : '849025356764898', // Thay thế với App ID của bạn
+                appId      : '849025356764898',
                 cookie     : true,
                 xfbml      : true,
-                version    : 'v20.0' // Đảm bảo version đúng và sử dụng không có dấu ngoặc
+                version    : 'v20.0'
             });
 
-            FB.AppEvents.logPageView(); // Ghi lại một sự kiện xem trang
+            FB.AppEvents.logPageView();
 
-            // Thêm sự kiện nhấp vào nút đăng nhập
             document.getElementById('fb-login-btn').onclick = function() {
                 FB.login(function(response) {
                     if (response.status === 'connected') {
-                        // Người dùng đã đăng nhập và đã cho phép ứng dụng
-                        console.log('Successfully logged in', response);
-                        // Thực hiện các hành động sau khi đăng nhập thành công
+                        // Người dùng đã đăng nhập thành công
+                        var accessToken = response.authResponse.accessToken;
+                        console.log('Access Token:', accessToken);
+
+                        // Gọi API Facebook để lấy thông tin người dùng
+                        FB.api('/me', {fields: 'name,email,picture'}, function(response) {
+                            console.log('Successful login for: ' + response.name);
+                            console.log('Email: ' + response.email);
+                            console.log('Profile picture: ' + response.picture.data.url);
+                            
+                            // Gửi thông tin người dùng đến server để xử lý đăng nhập
+                            fetch('/your-backend-endpoint', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    name: response.name,
+                                    email: response.email,
+                                    picture: response.picture.data.url,
+                                    accessToken: accessToken
+                                })
+                            }).then(res => res.json()).then(data => {
+                                console.log('Server response:', data);
+                                // Xử lý dữ liệu từ server, ví dụ: chuyển hướng, lưu thông tin người dùng, vv.
+                            }).catch(error => console.error('Error:', error));
+                        });
                     } else {
-                        console.log('User cancelled login or failed.');
+                        console.log('User cancelled login or did not fully authorize.');
                     }
-                }, {scope: 'public_profile,email'}); // Các quyền cần thiết
+                }, {scope: 'public_profile,email'});
             };
         };
 
         (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
             js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));

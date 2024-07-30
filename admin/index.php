@@ -10,6 +10,7 @@ require_once '../admin/controllers/AuthController.php';
 require_once '../admin/models/products.php';
 require_once '../admin/models/category.php';
 require_once '../admin/models/user.php';
+require_once '../admin/models/comment.php';
 
 $home = new HomeController();
 $user = new UserController();
@@ -51,6 +52,9 @@ if ($act == 'login') {
         'update_users' => $user->update_users(),
         'delete_user' => $user->delete_users(),
         'logout' => $auth->logout(),
+
+
+        'comments' => $product->views_comments(),
         default => $home->views_home()
     };
 

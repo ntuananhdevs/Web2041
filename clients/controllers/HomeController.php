@@ -6,7 +6,8 @@ class HomeController
 {
     public $home;
     public $products;
-    public function __construct(){
+    public function __construct()
+    {
         $this->home = new Home();
         $this->products = new Products();
     }
@@ -26,7 +27,7 @@ class HomeController
             $this->home->incrementViews($product_id);
 
             $product = $this->home->getProductById($product_id);
-  
+
             $comments = $this->products->get_comment($_GET['id']);
 
             if ($product) {
@@ -74,9 +75,8 @@ class HomeController
         $user_id = $_SESSION['user_id'];
         $content = $_POST['content'];
 
-        if($this->products->add_comment($product_id, $user_id, $content)){
+        if ($this->products->add_comment($product_id, $user_id, $content)) {
             header('Location: ?act=product_detail&id=' . $product_id);
-        
         };
         // Nếu không phải POST, yêu cầu trang chi tiết sản phẩm
     }

@@ -1,54 +1,57 @@
 <?php
-class Category {
+class Category
+{
     public $conn;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->conn = connectDB();
     }
 
-    public function getCategories() {
+    public function getCategories()
+    {
         try {
-           $sql = "SELECT 
+            $sql = "SELECT 
                     c.id, 
                     c.name, 
                     c.description, 
                     COUNT(p.id) AS product_count
-                FROM 
-                    categories c
-                LEFT JOIN 
-                    products p ON c.id = p.category_id
-                GROUP BY 
-                    c.id, c.name, c.description";
+                FROM categories c
+                LEFT JOIN  products p ON c.id = p.category_id
+                GROUP BY c.id, c.name, c.description";
             $stmt = $this->conn->prepare($sql);
-            $stmt -> execute();
-            return $stmt-> fetchAll();
-        } catch(PDOException $e) {
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
     }
-    public function categorybyid($id) {
+    public function categorybyid($id)
+    {
         try {
             $sql = "SELECT * FROM categories WHERE id = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([$id]);
-            return $stmt-> fetch();
-        } catch(PDOException $e) {
+            return $stmt->fetch();
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
     }
-    public function add($name, $description) {
+    public function add($name, $description)
+    {
         try {
             $sql = "INSERT INTO categories (name, description) VALUES (:name, :description)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':description', $description);
             return $stmt->execute();
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
     }
 
-    public function update($id, $name, $description) {
+    public function update($id, $name, $description)
+    {
         try {
             $sql = "UPDATE categories SET name = :name, description = :description WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
@@ -56,29 +59,31 @@ class Category {
             $stmt->bindParam(':name', $name);
             $stmt->bindParam(':description', $description);
             return $stmt->execute();
-        } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         try {
             $sql = "DELETE FROM categories WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             return $stmt->execute();
-        } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();  
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
         }
     }
-    public function getCategorybyID($id) {
+    public function getCategorybyID($id)
+    {
         try {
             $sql = "SELECT * FROM categories WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            return $stmt-> fetchAll();
-        } catch(PDOException $e) {
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
     }

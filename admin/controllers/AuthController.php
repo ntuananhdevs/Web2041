@@ -1,7 +1,6 @@
 <?php
 class AuthController {
     public $user;
-
     public function __construct() {
         $this->user = new User();
     }
@@ -11,7 +10,6 @@ class AuthController {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
             $data = $this->user->auth($email, $password);
-            // var_dump($data);    die();
             if ($data) {
                 if ($data['role'] == 'Admin') {
                     session_start();

@@ -55,6 +55,8 @@ if ($act == 'login') {
 
 
         'comments' => $product->views_comments(),
+        'view_comments' => $product->comment_detail(),
+        'delete_comment' => $product->delete_comment($_GET['id']),
         default => $home->views_home()
     };
 

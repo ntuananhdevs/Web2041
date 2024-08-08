@@ -36,8 +36,6 @@
                             <span>TIẾT KIỆM <?php echo round($discountPercentage, 2); ?>%</span>
                         </div>
                     </div>
-
-
                     <div class="description-box">
                         <ul>
                             <?php if (!empty($product['description_1'])) : ?>
@@ -76,3 +74,4 @@
         </div>
     </div>
 </article>
+<script src="./public/js/main.js"></script>

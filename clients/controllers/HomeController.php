@@ -57,7 +57,7 @@ class HomeController
             $searchTerm = $_GET['search'];
 
             $results = $this->products->searchProducts($searchTerm);
-            header('Location: ../clients/views/result.php?search=' . urlencode($searchTerm));
+            header('Location: ../clients/views/result.php?search=' . $searchTerm);
             exit;
         } else {
             $results = [];
@@ -66,6 +66,7 @@ class HomeController
     public function view_result()
     {
         $results = $this->products->searchProducts($_GET['search']);
+
         require_once '../clients/views/result.php';
     }
 
@@ -78,6 +79,5 @@ class HomeController
         if ($this->products->add_comment($product_id, $user_id, $content)) {
             header('Location: ?act=product_detail&id=' . $product_id);
         };
-        // Nếu không phải POST, yêu cầu trang chi tiết sản phẩm
     }
 }

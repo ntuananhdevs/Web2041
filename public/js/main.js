@@ -1,8 +1,4 @@
 // Dropdown functionality
-document.getElementById('userIcon').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.querySelector('.dropdown-menu').classList.toggle('show');
-});
 
 // Close the dropdown if the user clicks outside of it
 // window.onclick = function(event) {
@@ -42,31 +38,32 @@ function reloadslide() {
 //header
 let lastScrollTop = 0;
 
-document.getElementById('searchIcon').addEventListener('click', function() {
-    document.getElementById('searchOverlay').classList.toggle('active');
-    document.querySelector('.main-content').classList.toggle('blurred');
-});
+        document.getElementById('searchIcon').addEventListener('click', function() {
+            document.getElementById('searchOverlay').classList.toggle('active');
+            document.querySelector('.main-content').classList.toggle('blurred');
+        });
 
-// Close overlay when clicking outside
-document.addEventListener('click', function(event) {
-    var searchOverlay = document.getElementById('searchOverlay');
-    if (!searchOverlay.contains(event.target) && !event.target.closest('#searchIcon')) {
-        searchOverlay.classList.remove('active');
-        document.querySelector('.main-content').classList.remove('blurred');
-    }
-});
+        // Close overlay when clicking outside
+        document.addEventListener('click', function(event) {
+            var searchOverlay = document.getElementById('searchOverlay');
+            if (!searchOverlay.contains(event.target) && !event.target.closest('#searchIcon')) {
+                searchOverlay.classList.remove('active');
+                document.querySelector('.main-content').classList.remove('blurred');
+            }
+        });
 
-// Prevent closing overlay when clicking inside it
-document.querySelector('.search-overlay').addEventListener('click', function(event) {
-    event.stopPropagation();
-});
+        // Prevent closing overlay when clicking inside it
+        document.querySelector('.search-overlay').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
 
-// Close search overlay on scroll
-window.addEventListener('scroll', function() {
-    let st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > lastScrollTop) {
-        document.getElementById('searchOverlay').classList.remove('active');
-        document.querySelector('.main-content').classList.remove('blurred');
-    }
-    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-});
+        // Close search overlay on scroll
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                document.getElementById('searchOverlay').classList.remove('active');
+                document.querySelector('.main-content').classList.remove('blurred');
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        });
+

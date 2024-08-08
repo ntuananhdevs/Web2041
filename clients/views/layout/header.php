@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="../public/js/clients.js"></script>
 </head>
+
 <body>
-    <nav class="no-blur" >
+    <nav class="no-blur">
         <div class="header-nav">
             <div class="header-logo">
                 <div class="logo-header">
@@ -89,9 +92,7 @@
                         <div class="dropdown-menu">
 
                             <?php if (isset($_SESSION['user_id'])) : ?>
-                                <div class="hi">
-                                <p><ion-icon name="person-circle-outline"></ion-icon>Xin chào <?php echo $_SESSION['username']; ?></p>
-                                </div>
+
                                 <a href="?act=profile">Tài khoản của tôi</a>
                                 <a href="?act=orders">Kiểm tra đơn hàng</a>
                                 <a href="?act=logout">Đăng xuất</a>
@@ -107,5 +108,43 @@
             </div>
         </div>
     </nav>
-    <script src="./public/js/main.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        document.getElementById('userIcon').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelector('.dropdown-menu').classList.toggle('show');
+        });
+        let lastScrollTop = 0;
+
+        document.getElementById('searchIcon').addEventListener('click', function() {
+            document.getElementById('searchOverlay').classList.toggle('active');
+            document.querySelector('.main-content').classList.toggle('blurred');
+        });
+
+        // Close overlay when clicking outside
+        document.addEventListener('click', function(event) {
+            var searchOverlay = document.getElementById('searchOverlay');
+            if (!searchOverlay.contains(event.target) && !event.target.closest('#searchIcon')) {
+                searchOverlay.classList.remove('active');
+                document.querySelector('.main-content').classList.remove('blurred');
+            }
+        });
+
+        // Prevent closing overlay when clicking inside it
+        document.querySelector('.search-overlay').addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+        // Close search overlay on scroll
+        window.addEventListener('scroll', function() {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                document.getElementById('searchOverlay').classList.remove('active');
+                document.querySelector('.main-content').classList.remove('blurred');
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        });
+    </script>
+
+    <script>
+        AOS.init();
+    </script>

@@ -44,8 +44,8 @@ class AuthController
             $errors = [];
             if (empty($username)) {
                 $errors['username'] = "Hãy Nhập Username";
-            } else if (strlen($username) > 14) {
-                $errors['username'] = "Username chỉ 14 ký tự";
+            } else if (strlen($username) > 14 || strlen($username) < 4) {
+                $errors['username'] = "Username phải bao gồm từ 4-14 ký tự";
             }
             if (empty($email)) {
                 $errors['email'] = "Email không được bỏ trống";

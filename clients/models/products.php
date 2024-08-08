@@ -57,13 +57,8 @@ class Products
             $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->bindParam(':content', $content, PDO::PARAM_STR);
-            if ($stmt->execute()) {
-                return true;
-            } else {
-                $errorInfo = $stmt->errorInfo();
-                error_log("Error adding comment: " . $errorInfo[2]);
-                return false;
-            }
+            $stmt->execute();
+            return true;
         } catch (PDOException $e) {
             error_log("PDOException: " . $e->getMessage());
             return false;
